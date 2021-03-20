@@ -1,0 +1,40 @@
+<div class="nav-container">
+  <div class="navbar-main d-flex">
+    <div class="brand-name">
+      <h1><span class="text-primary">ez</span>tenda</h1>
+    </div>
+    <div class="nav-search">
+      <input class="form-control" type="search" name="" id="">
+    </div>
+    <div class="nav-items">
+      <ul class="d-flex nav-item-list">
+        <li>HOW IT WORKS</li>
+        <li>USE CASES</li>
+        <li>ABOUT US</li>
+        <% if current_user %>
+          <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "btn btn-info" %></li>
+        <% else %>
+          <li><%= link_to "SIGN IN", new_user_registration_path, class: "btn btn-info" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="sub-nav d-flex justify-content-center">
+    <div class="">
+      <ul class="d-flex sub-nav-tabs">
+        <li>Lager</li>
+        <li>Cider</li>
+        <li>Craft Beer</li>
+        <li>Bitter</li>
+        <li>Stout</li>
+        <li>Red Wine</li>
+        <li>White Wine</li>
+        <li>Sparkling Wine</li>
+        <li>Fortified Wine</li>
+        <li>Champagne</li>
+        <li>Carbonated soft drinks</li>
+        <li>See all categories</li>
+      </ul>
+    </div>
+  </div>
+</div>
