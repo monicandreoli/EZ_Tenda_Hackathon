@@ -12,7 +12,7 @@ Auction.destroy_all
 User.destroy_all
 
 puts "Generating Users"
-user_1 = User.new(email: "anthony@gmail.com", password: "123456", role: "Manager")
+user_1 = User.new(email: "anthony@gmail.com", password: "123456", role: "Manager", name: "The Pig Pub", location: "London")
 user_1_image = URI.open("https://www.theflyingpigvan.com/wp-content/uploads/2018/04/TFP-LogoFull_Large-1.png")
 user_1.photo.attach(io: user_1_image, filename: "user_1_image.png", content_type: "image/png")
 user_1.save!
@@ -48,15 +48,15 @@ user_10.photo.attach(io: user_10_image, filename: "user10.png", content_type: "i
 user_10.save!
 
 puts "Generating Auctions"
-auction_1 = Auction.new(start_price: 300, estimated_volume: 1000, contract_length: "12 Months", category: "whisky", user_id: user_1.id)
+auction_1 = Auction.new(start_price: 300, estimated_volume: 1000, contract_length: "12 Months", category: "whisky", user_id: user_1.id, deadline: DateTime.parse("20/03/2021 17:00"))
 auction_1.save!
-auction_2 = Auction.new(start_price: 250, estimated_volume: 800, contract_length: "12 Months", category: "gin", user_id: user_1.id)
+auction_2 = Auction.new(start_price: 250, estimated_volume: 800, contract_length: "12 Months", category: "gin", user_id: user_1.id, deadline: DateTime.parse("22/03/2021 17:00"))
 auction_2.save!
-auction_3 = Auction.new(start_price: 700, estimated_volume: 500, contract_length: "12 Months", category: "lager", user_id: user_1.id)
+auction_3 = Auction.new(start_price: 700, estimated_volume: 500, contract_length: "12 Months", category: "lager", user_id: user_1.id, deadline: DateTime.parse("24/03/2021 17:00"))
 auction_3.save!
-auction_4 = Auction.new(start_price: 225, estimated_volume: 700, contract_length: "12 Months", category: "red_wine", user_id: user_1.id)
+auction_4 = Auction.new(start_price: 225, estimated_volume: 700, contract_length: "12 Months", category: "red_wine", user_id: user_1.id, deadline: DateTime.parse("25/03/2021 17:00"))
 auction_4.save!
-auction_5 = Auction.new(start_price: 100, estimated_volume: 2000, contract_length: "12 Months", category: "craft_beer", user_id: user_1.id)
+auction_5 = Auction.new(start_price: 100, estimated_volume: 2000, contract_length: "12 Months", category: "craft_beer", user_id: user_1.id, deadline: DateTime.parse("26/03/2021 17:00"))
 auction_5.save!
 
 
@@ -68,22 +68,22 @@ bid_1.photo.attach(io: bid_1_image, filename: "bid_1.png", content_type: "image/
 bid_1.save!
 
 bid_2 = Bid.new(price: 400, perks: "30 glasses and t-shirts", user_id: user_7.id, auction_id: auction_1.id)
-bid_2_image = URI.open("https://www.pngfind.com/pngs/m/75-758262_whisky-jack-daniels-png-jack-daniels-png-transparent.png")
+bid_2_image = URI.open("https://i0.wp.com/freepngimages.com/wp-content/uploads/2015/12/jack-daniels-tennessee-whiskey-transparent-image.png?fit=471%2C841")
 bid_2.photo.attach(io: bid_2_image, filename: "bid_2.png", content_type: "image/png")
 bid_2.save!
 
 bid_3 = Bid.new(price: 325, perks: "10 glasses", user_id: user_8.id, auction_id: auction_1.id)
-bid_3_image = URI.open("https://www.vhv.rs/dpng/d/612-6123378_makers-mark-hd-png-download.png")
+bid_3_image = URI.open("https://www.pngarea.com/pngm/685/4837640_makers-mark-png-makers-mark-label-template-hd.png")
 bid_3.photo.attach(io: bid_3_image, filename: "bid_3.png", content_type: "image/png")
 bid_3.save!
 
 bid_4 = Bid.new(price: 310, perks: "20 glasses + promo posters", user_id: user_9.id, auction_id: auction_1.id)
-bid_4_image = URI.open("https://icon2.cleanpng.com/20180613/ws/kisspng-scotch-whisky-blended-whiskey-single-malt-whisky-c-famous-5b20e686ee3b77.6806651215288828229758.jpg")
+bid_4_image = URI.open("https://img2.pngio.com/the-famous-grouse-70cl-75cl-famous-grouse-png-868_976.png")
 bid_4.photo.attach(io: bid_4_image, filename: "bid_4.png", content_type: "image/png")
 bid_4.save!
 
 bid_5 = Bid.new(price: 350, perks: "20 glasses and t-shirts", user_id: user_10.id, auction_id: auction_1.id)
-bid_5_image = URI.open("https://banner2.cleanpng.com/20180613/hgt/kisspng-scotch-whisky-single-malt-whisky-glenfiddich-speys-glenfiddich-5b2098a742e221.934816271528862887274.jpg")
+bid_5_image = URI.open("https://www.kindpng.com/picc/m/66-660913_chivas-regal-price-in-dubai-hd-png-download.png")
 bid_5.photo.attach(io: bid_5_image, filename: "bid_5.png", content_type: "image/png")
 bid_5.save!
 
@@ -117,7 +117,7 @@ bid_10.save!
 
 # Auction 3
 bid_11 = Bid.new(price: 800, perks: "20 glasses and t-shirts", user_id: user_6.id, auction_id: auction_3.id)
-bid_11_image = URI.open("https://www.pngjoy.com/pngm/52/1177389_heineken-heineken-beer-bottles-6-pack-330ml-transparent.png")
+bid_11_image = URI.open("https://www.kindpng.com/picc/m/214-2143938_transparent-heineken-png-heineken-png-png-download.png")
 bid_11.photo.attach(io: bid_11_image, filename: "bid_11.png", content_type: "image/png")
 bid_11.save!
 
