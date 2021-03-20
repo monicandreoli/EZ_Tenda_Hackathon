@@ -1,3 +1,13 @@
 .fa-pencil-alt, .fa-trash{
    font-size: 12px;
 }
+.header-index {
+   background-color:$primary;
+   color: white;
+
+   .header-title {
+      p, h1 {
+         line-height: 15px;
+      }
+   }
+}

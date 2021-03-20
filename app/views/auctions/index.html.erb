@@ -1,12 +1,18 @@
-<div class="container pt-5">
+<div class="container">
+<div class="header-index p-3 d-flex w-100 justify-content-between align-items-center">
+<div class="header-title">
+<p><small>FIND THE RIGHT TENDER</small></p>
+<h1>Join an Auction</h1>
+</div>
 <div>
-<h1>All active Auctions are listed here:</h1>
-<%= link_to "create new", new_auction_path %>
+<%= link_to "create new", new_auction_path, class: "btn button_bid" %>
+</div>
 </div>
 <% @auctions.each do |auction| %>
-    <div class="card col-6 m-2 w-100">
-      <div class="border-bottom w-100 m-0 p-2 d-flex justify-content-between">
-      <%= auction.add_space(auction.category).capitalize %> auction
+
+    <div class="card col-6 my-2 w-100">
+      <div class="border-bottom w-100 my-2 pt-2 d-flex justify-content-between">
+      <h4><%= auction.add_space(auction.category).capitalize %> Auction</h4>
        <div>
           <%= link_to edit_auction_path(auction) do %>
             <i class="fas fa-pencil-alt pr-1"></i>
