@@ -39,6 +39,19 @@
               <h5><strong><%= bid.price %> £</strong></h5>
             </div>
           </div>
+          <div class="approved-declined">
+            
+            <% if @auction.is_over? %>
+              
+              <% if bid.approved != true %>
+                <%= link_to "Approve", approve_path(bid), method: :patch, remote: true, class: "btn" %>
+              <% else %>
+                <%= link_to "Decline", decline_path(bid), method: :patch, remote: true, class: "btn" %>
+              <% end %>
+              
+            <% end %>
+            
+          </div>
         </div>
         <% end %>
     </div>
