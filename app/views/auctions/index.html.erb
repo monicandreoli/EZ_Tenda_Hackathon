@@ -1,0 +1,17 @@
+<div class="container pt-5">
+<h1>All active Auctions are listed here:</h1>
+<% @auctions.each do |auction| %>
+<%= link_to auction_path(auction), class: "w-100" do %>
+    <div class="card col-6 m-2 w-100">
+      <div class="border-bottom w-100 m-0 p-2">
+      <%= auction.category.capitalize %> auction
+      </div>
+      <div class="p-2">
+      Starting price: <%= auction.start_price %>
+      available for: <%= auction.contract_length %>
+      </div>
+    </div>
+    <% end %>
+<% end %>
+
+</div>
