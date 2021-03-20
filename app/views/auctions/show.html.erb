@@ -42,11 +42,13 @@
           <div class="approved-declined">
             
             <% if @auction.is_over? %>
+            <%# && @auction.user.role == "Manager"  %>
+
               
               <% if bid.approved != true %>
-                <%= link_to "Approve", approve_path(bid), method: :patch, remote: true, class: "btn" %>
+                <%= link_to "Approve", auction_path(@auction), remote: true, class: "btn" %>
               <% else %>
-                <%= link_to "Decline", decline_path(bid), method: :patch, remote: true, class: "btn" %>
+                <%= link_to "Decline", auction_path(@auction), remote: true, class: "btn" %>
               <% end %>
               
             <% end %>
