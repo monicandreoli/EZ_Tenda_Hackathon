@@ -22,27 +22,27 @@ user_3 = User.create!(email: "andy@gmail.com", password: "123456", role: "Manage
 user_4 = User.create!(email: "james@gmail.com", password: "123456", role: "Manager")
 user_5 = User.create!(email: "harriet@gmail.com", password: "123456", role: "Manager")
 
-user_6 = User.new(email: "marley@gmail.com", password: "123456", role: "Brand")
+user_6 = User.new(email: "marley@gmail.com", password: "123456", role: "Brand", name: "Gordon's Distribution")
 user_6_image = URI.open("https://brandslogos.com/wp-content/uploads/images/large/gordons-logo.png")
 user_6.photo.attach(io: user_6_image, filename: "user6.png", content_type: "image/png")
 user_6.save!
 
-user_7 = User.new(email: "ben@gmail.com", password: "123456", role: "Brand")
+user_7 = User.new(email: "ben@gmail.com", password: "123456", role: "Brand", name: "Jameson Distribution")
 user_7_image = URI.open("https://upload.wikimedia.org/wikipedia/en/0/06/Jameson_Irish_Whiskey_logo.png")
 user_7.photo.attach(io: user_7_image, filename: "user7.png", content_type: "image/png")
 user_7.save!
 
-user_8 = User.new(email: "dillan@gmail.com", password: "123456", role: "Brand")
+user_8 = User.new(email: "dillan@gmail.com", password: "123456", role: "Brand", name: "Smirnoff Distribution" )
 user_8_image = URI.open("https://www.diageobaracademy.com/uploads/photos/d2ddea18f00665ce8623e36bd4e3c7c5c4e8c9512347f8aa0b5a22ed54c093e19881aa20_medium.jpg")
 user_8.photo.attach(io: user_8_image, filename: "user8.png", content_type: "image/png")
 user_8.save!
 
-user_9 = User.new(email: "ozzy@gmail.com", password: "123456", role: "Brand")
+user_9 = User.new(email: "ozzy@gmail.com", password: "123456", role: "Brand", name: "Kettle One Distribution")
 user_9_image = URI.open("https://p1.hiclipart.com/preview/796/801/215/trophy-ketel-one-vodka-logo-text-signage-banner-line-png-clipart.jpg")
 user_9.photo.attach(io: user_9_image, filename: "user9.png", content_type: "image/png")
 user_9.save!
 
-user_10 = User.new(email: "sarah@gmail.com", password: "123456", role: "Brand")
+user_10 = User.new(email: "sarah@gmail.com", password: "123456", role: "Brand", name: "Stella Artois Distribution")
 user_10_image = URI.open("https://toppng.com/uploads/preview/stella-artois-eps-vector-logo-free-11574044511njqddbhkrt.png")
 user_10.photo.attach(io: user_10_image, filename: "user10.png", content_type: "image/png")
 user_10.save!

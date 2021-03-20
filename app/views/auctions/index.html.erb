@@ -5,14 +5,20 @@
 <h1>Join an Auction</h1>
 </div>
 <div>
-<%= link_to "create new", new_auction_path, class: "btn button_bid" %>
+  <% if current_user.role == "Manager" %>
+    <%= link_to "create new", new_auction_path, class: "btn button_bid" %>
+  <% end %>
 </div>
 </div>
 <% @auctions.each do |auction| %>
 
     <div class="card col-6 my-2 w-100">
-      <div class="border-bottom w-100 my-2 pt-2 d-flex justify-content-between">
-      <h4><%= auction.add_space(auction.category).capitalize %> Auction</h4>
+      <div class="border-bottom w-100 my-2 pt-2 d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="avatar-img-auction" style="background-image: url('<%= cl_image_path (auction.user.photo.key), crop: :fill %>'); width: 40px; height: 40px; border-radius: 50px">
+          </div>
+          <span><%= auction.user.name %></span>
+        </div>
        <div>
           <%= link_to edit_auction_path(auction) do %>
             <i class="fas fa-pencil-alt pr-1"></i>
@@ -23,11 +29,12 @@
       </div>
       </div>
       <div class="p-2">
-      Starting price: <%= auction.start_price %>
-      available for: <%= auction.contract_length %>
+      <h6><%= auction.add_space(auction.category).capitalize %> Auction</h6>
+      <div>Price: £<%= auction.start_price %></div> 
+      <div>Available for: <%= auction.contract_length %></div>
       </div>
-      <div class="p-2 ml-auto">
-    <%= link_to 'Visit', auction_path(auction) %>
+      <div class="ml-auto pb-2">
+    <%= link_to 'Go to auction', auction_path(auction), class: "btn venue-button" %>
       </div>
     </div>
 <% end %>
