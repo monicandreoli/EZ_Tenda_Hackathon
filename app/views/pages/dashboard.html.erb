@@ -1,0 +1,11 @@
+<% @bids.each do |bid| %>
+    <% if bid.user_id == current_user.id%>
+        <%= bid %>
+    <% end %>
+<% end %>
+
+<% @auctions.each do |auction| %>
+    <% if auction.user_id == current_user.id%>
+        <%= auction %>
+    <% end %>
+<% end %>
