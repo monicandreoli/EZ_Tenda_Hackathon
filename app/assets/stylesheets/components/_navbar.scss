@@ -1,12 +1,43 @@
-.navbar-lewagon {
+.navbar-main{
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item-list li{
+  list-style-type: none;
+  margin-right: 15px;
+}
+
+.brand-name{
+  // margin-right: 30px;
+}
+
+.nav-item-list{
+  align-items: center;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+.sub-nav-tabs{
+  align-items: center;
   justify-content: space-between;
-  background: white;
+  width: 100%;
+  padding-left: 0px;
+  background-color: #dfdad5;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.sub-nav-tabs li{
+  font-size: 10px;
+  list-style-type: none;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-container{
+  padding: 5px 20px
 }
+
+.nav-search{
+  padding: 0 12px;
+}
+
