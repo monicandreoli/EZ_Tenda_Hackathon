@@ -3,6 +3,11 @@ class AuctionsController < ApplicationController
 
   def index
     @auctions = Auction.all
+    if params[:query].present?
+      @auctions = Auction.where("category ILIKE ?", "%#{params[:query]}%")
+    else
+      @auctions = Auction.all
+    end
   end
 
   def show

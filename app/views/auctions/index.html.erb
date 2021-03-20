@@ -6,7 +6,7 @@
 <% @auctions.each do |auction| %>
     <div class="card col-6 m-2 w-100">
       <div class="border-bottom w-100 m-0 p-2 d-flex justify-content-between">
-      <%= auction.category.capitalize %> auction
+      <%= auction.add_space(auction.category).capitalize %> auction
        <div>
           <%= link_to edit_auction_path(auction) do %>
             <i class="fas fa-pencil-alt pr-1"></i>
