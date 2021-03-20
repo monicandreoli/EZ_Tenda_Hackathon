@@ -6,7 +6,7 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 #D9D3CD4D;
 $font-size-base: 1rem;
 
 // Colors
@@ -22,4 +22,9 @@ $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
+
 // Override other variables below!
+
+.container {
+max-width: 75vw !important;
+}
