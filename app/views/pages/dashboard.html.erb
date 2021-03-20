@@ -1,0 +1,40 @@
+<% if current_user.role == "Brand" %> 
+<h1>Live Bids</h1>
+    <% @bids.each do |bid| %>
+        <% if bid.user_id == current_user.id%>
+            <div class="card">
+                <div class="bid-price">
+                    <span><%= bid.price %></span>
+                </div>
+                <div class="bid-perks">
+                    <span><%= bid.perks %></span>
+                </div>
+                <div class="bid-perks">
+                    <span>Auction: <%= bid.auction_id %> - <%= bid.auction.estimated_volume %> bottles of <%= bid.auction.category %> for <%= bid.auction.contract_length %></span>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% if current_user.role == "Manager" %>
+    <h1>Live Auctions</h1> 
+    <% @auctions.each do |auction| %>
+        <% if auction.user_id == current_user.id%>
+            <div class="card">
+                <div class="auction-start-price">
+                    <%= auction.start_price %>
+                </div>
+                <div class="auction-estimated-volume">
+                    <%= auction.estimated_volume %>
+                </div>
+                <div class="auction-contract-length">
+                    <%= auction.contract_length %>
+                </div>
+                <div class="auction-catgeory">
+                    <%= auction.category %>
+                </div>    
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
