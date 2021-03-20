@@ -34,6 +34,24 @@ class BidsController < ApplicationController
     end 
   end
 
+  def approve
+    @bid.approved = true
+    @bid.declined = false
+    respond_to do |format|
+      format.js
+    end
+    @bid.save
+  end
+
+  def decline
+    @bid.declined = true
+    @bid.approved = false
+    respond_to do |format|
+      format.js
+    end
+    @bid.save
+  end
+
   private
 
   def bid_params

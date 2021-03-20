@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   end
   resources :bids, only: [:show, :edit, :update]
   get '/dashboard', to: 'pages#dashboard'
+  # patch '/approve/:id', to: "bids#approve", as: :approve
+  # patch '/decline/:id', to: "bids#decline", as: :decline
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

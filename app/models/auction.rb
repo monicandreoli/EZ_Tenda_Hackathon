@@ -1,3 +1,5 @@
+require 'date'
+
 class Auction < ApplicationRecord
   belongs_to :user
   has_many :bids
@@ -11,5 +13,16 @@ class Auction < ApplicationRecord
 
   def add_space(category)
     category.gsub('_', " ")
+  end
+
+  def is_over?
+    now = DateTime.now
+    deadline = self.deadline
+    distance = deadline - now
+    if distance < 0
+      return true
+    else
+      return false
+    end
   end
 end
