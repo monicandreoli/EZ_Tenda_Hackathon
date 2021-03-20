@@ -1,0 +1,13 @@
+
+<div class="container pt-5">
+  <div class="card p-2">
+    <h1>edit auction here</h1>
+      <%= simple_form_for @auction do |f| %>
+      <%= f.input :start_price %>
+      <%= f.input :contract_length %>
+      <%= f.input :estimated_volume %>
+      <%= f.input :category, collection: Auction::CATEGORIES %>
+      <%= f.submit %>
+      <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class AuctionsController < ApplicationController
 
-  before_action :set_auction, only: %i[show]
+  before_action :set_auction, only: %i[show edit update destroy]
   def index
     @auctions = Auction.all
   end
@@ -9,18 +9,33 @@ class AuctionsController < ApplicationController
   end
 
   def new
+    @auction = Auction.new
   end
 
   def create
+    @auction = Auction.create(auction_params)
+    if @auction.save
+      redirect_to auction_path(@auction)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    @auction.update(auction_params)
+    if @auction.save
+      redirect_to auctions_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @auction.destroy
+    redirect_to auctions_path
   end
 
   private
