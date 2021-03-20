@@ -12,7 +12,7 @@ Auction.destroy_all
 User.destroy_all
 
 puts "Generating Users"
-user_1 = User.new(email: "anthony@gmail.com", password: "123456", role: "Manager")
+user_1 = User.new(email: "anthony@gmail.com", password: "123456", role: "Manager", name: "The Pig Pub", location: "London")
 user_1_image = URI.open("https://www.theflyingpigvan.com/wp-content/uploads/2018/04/TFP-LogoFull_Large-1.png")
 user_1.photo.attach(io: user_1_image, filename: "user_1_image.png", content_type: "image/png")
 user_1.save!
