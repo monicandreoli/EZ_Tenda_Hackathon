@@ -1,17 +1,28 @@
 <div class="container pt-5">
+<div>
 <h1>All active Auctions are listed here:</h1>
+<%= link_to "create new", new_auction_path %>
+</div>
 <% @auctions.each do |auction| %>
-<%= link_to auction_path(auction), class: "w-100" do %>
     <div class="card col-6 m-2 w-100">
-      <div class="border-bottom w-100 m-0 p-2">
+      <div class="border-bottom w-100 m-0 p-2 d-flex justify-content-between">
       <%= auction.category.capitalize %> auction
+       <div>
+          <%= link_to edit_auction_path(auction) do %>
+            <i class="fas fa-pencil-alt pr-1"></i>
+          <% end %>
+          <%= link_to auction_path(auction), method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+      </div>
       </div>
       <div class="p-2">
       Starting price: <%= auction.start_price %>
       available for: <%= auction.contract_length %>
       </div>
+      <div class="p-2 ml-auto">
+    <%= link_to 'Visit', auction_path(auction) %>
+      </div>
     </div>
-    <% end %>
 <% end %>
-
 </div>
