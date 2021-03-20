@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Edit bid</h1>
+      <%= simple_form_for @bid do |f| %>
+        <%= f.input :price %>
+        <%= f.input :perks %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
