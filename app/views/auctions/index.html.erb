@@ -1,5 +1,8 @@
 <div class="container pt-5">
+<div>
 <h1>All active Auctions are listed here:</h1>
+<%= link_to "create new", new_auction_path %>
+</div>
 <% @auctions.each do |auction| %>
     <div class="card col-6 m-2 w-100">
       <div class="border-bottom w-100 m-0 p-2 d-flex justify-content-between">
