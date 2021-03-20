@@ -9,7 +9,7 @@ class BidsController < ApplicationController
     @bid = Bid.new
     @bid.auction = @auction
   end
-
+  
   def create
     @auction = Auction.find(params[:auction_id])
     @bid = Bid.new(bid_params)
@@ -37,7 +37,7 @@ class BidsController < ApplicationController
   private
 
   def bid_params
-    params.require(:bid).permit(:price, :perks)
+    params.require(:bid).permit(:price, :perks, :photo)
   end
 
   def set_bid

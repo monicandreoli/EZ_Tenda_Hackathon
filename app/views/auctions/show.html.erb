@@ -9,9 +9,14 @@
       </div>
       <div class="auction-bids">
         <h2>All bids for the auction</h2>
-        <% @bids.each do |bid| %>
-         <div class="card">
-          <div class="d-flex justify-content-between">
+
+          <% @bids.each do |bid| %>
+            <div class="card">
+            <div class="d-flex justify-content-between">
+              <% if bid.photo.attached? %>
+                <%= cl_image_tag @bid.photo, height: 300, width: 400, crop: :fill %>
+                <% end %>
+
             <p>Brand: <%= bid.user.name %></p>
             <div class="bid-icons">
               <%= link_to edit_bid_path(bid) do %>
