@@ -19,6 +19,7 @@ class BidsController < ApplicationController
   #     redirect_to auction_path(@auction)
   #   else
   #     render :new
+  #   end
   # end
 
   # def edit
@@ -33,7 +34,7 @@ class BidsController < ApplicationController
   private
 
   def bid_params
-    params.require(:bid).permit(:price, :perks)
+    params.require(:bid).permit(:price, :perks, :photo)
   end
 
   def set_bid

@@ -11,6 +11,9 @@
         <h2>All bids for the auction</h2>
         <div class="card">
           <% @bids.each do |bid| %>
+          <% if bid.photo.attached? %>
+            <%= cl_image_tag @bid.photo, height: 300, width: 400, crop: :fill %>
+          <% end %>
             <p>Brand: <%= bid.user.name %></p>
             <p>Price: <%= bid.price %> £</p>
             <p>Perks: <%= bid.perks %></p>
