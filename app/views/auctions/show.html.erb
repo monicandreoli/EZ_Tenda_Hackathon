@@ -9,16 +9,25 @@
       </div>
       <div class="auction-bids">
         <h2>All bids for the auction</h2>
-        <div class="card">
+
           <% @bids.each do |bid| %>
-          <% if bid.photo.attached? %>
-            <%= cl_image_tag @bid.photo, height: 300, width: 400, crop: :fill %>
-          <% end %>
+            <div class="card">
+            <div class="d-flex justify-content-between">
+              <% if bid.photo.attached? %>
+                <%= cl_image_tag @bid.photo, height: 300, width: 400, crop: :fill %>
+                <% end %>
+
             <p>Brand: <%= bid.user.name %></p>
+            <div class="bid-icons">
+              <%= link_to edit_bid_path(bid) do %>
+                Change bid<i class="fas fa-pencil-alt mr-2 ml-2"></i>
+              <% end %>
+            </div>
+          </div>
             <p>Price: <%= bid.price %> £</p>
             <p>Perks: <%= bid.perks %></p>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <%= link_to "Bid now", new_auction_bid_path(@auction) %>
       </div>
     </div>
