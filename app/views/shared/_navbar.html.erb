@@ -1,10 +1,16 @@
 <div class="nav-container">
   <div class="navbar-main d-flex">
     <div class="brand-name">
-      <h1><span class="text-primary">ez</span>tenda</h1>
+      <a href="/"><h1><span class="text-primary">ez</span>tenda</h1></a>
     </div>
     <div class="nav-search">
-      <input class="form-control" type="search" name="" id="">
+      <%= form_tag auctions_path, method: :get do %>
+        <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search for tenders"
+        %>
+      <% end %>
     </div>
     <div class="nav-items">
       <ul class="d-flex nav-item-list">
@@ -22,18 +28,18 @@
   <div class="sub-nav d-flex justify-content-center">
     <div class="">
       <ul class="d-flex sub-nav-tabs">
-        <li>Lager</li>
-        <li>Cider</li>
-        <li>Craft Beer</li>
-        <li>Bitter</li>
-        <li>Stout</li>
-        <li>Red Wine</li>
-        <li>White Wine</li>
-        <li>Sparkling Wine</li>
-        <li>Fortified Wine</li>
-        <li>Champagne</li>
-        <li>Carbonated soft drinks</li>
-        <li>See all categories</li>
+        <li><%= link_to "Lager", auctions_path(:query => "lager") %></li>
+        <li><%= link_to "Cider", auctions_path(:query => "cider") %></li>
+        <li><%= link_to "Craft Beer", auctions_path(:query => "craft_beer") %></li>
+        <li><%= link_to "Bitter", auctions_path(:query => "bitter") %></li>
+        <li><%= link_to "Stout", auctions_path(:query => "stout") %></li>
+        <li><%= link_to "Red Wine", auctions_path(:query => "red_wine") %></li>
+        <li><%= link_to "White Wine", auctions_path(:query => "white_wine") %></li>
+        <li><%= link_to "Sparkling Wine", auctions_path(:query => "sparkling Wine") %></li>
+        <li><%= link_to "Fortified Wine", auctions_path(:query => "fortified_wine") %></li>
+        <li><%= link_to "Champagne", auctions_path(:query => "champagne") %></li>
+        <li><%= link_to "Carbonated Soft Drinks", auctions_path(:query => "carbonated_soft_drinks") %></li>
+        <li><%= link_to "See All Categories", auctions_path%></li>
       </ul>
     </div>
   </div>
