@@ -29,7 +29,6 @@ const timerCountdown = () => {
           headline.innerText = "The auction is over";
           headlineComment.innerText = "Thanks for bidding!";
           countdown.style.display = "none";
-          content.style.display = "block";
 
           clearInterval(x);
         } else {
