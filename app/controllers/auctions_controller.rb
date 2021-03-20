@@ -1,6 +1,6 @@
 class AuctionsController < ApplicationController
-
   before_action :set_auction, only: %i[show edit update destroy]
+
   def index
     @auctions = Auction.all
   end
@@ -14,6 +14,7 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.create(auction_params)
+    @auction.user = current_user
     if @auction.save
       redirect_to auction_path(@auction)
     else
@@ -47,5 +48,4 @@ class AuctionsController < ApplicationController
   def auction_params
     params.require(:auction).permit(:start_price, :category, :contract_length, :estimated_volume)
   end
-
 end
