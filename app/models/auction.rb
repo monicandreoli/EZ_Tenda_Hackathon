@@ -8,4 +8,8 @@ class Auction < ApplicationRecord
   validates :start_price, presence: true, numericality: true
   validates :estimated_volume, presence: true, numericality: true
   validates :contract_length, presence: true
+
+  def add_space(category)
+    category.gsub('_', " ")
+  end
 end

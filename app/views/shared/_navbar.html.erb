@@ -4,10 +4,10 @@
       <a href="/"><h1><span class="text-primary">ez</span>tenda</h1></a>
     </div>
     <div class="nav-search">
-      <%= form_tag auctions_path, method: :get do %>
+      <%= form_tag auctions_path, class:"nav-form", method: :get do %>
         <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control search-form",
       placeholder: "Search for tenders"
         %>
       <% end %>
@@ -28,17 +28,17 @@
   <div class="sub-nav d-flex justify-content-center">
     <div class="">
       <ul class="d-flex sub-nav-tabs">
-        <li><%= link_to "Lager", auctions_path(:query => "lager") %></li>
-        <li><%= link_to "Cider", auctions_path(:query => "cider") %></li>
-        <li><%= link_to "Craft Beer", auctions_path(:query => "craft_beer") %></li>
-        <li><%= link_to "Bitter", auctions_path(:query => "bitter") %></li>
-        <li><%= link_to "Stout", auctions_path(:query => "stout") %></li>
-        <li><%= link_to "Red Wine", auctions_path(:query => "red_wine") %></li>
-        <li><%= link_to "White Wine", auctions_path(:query => "white_wine") %></li>
-        <li><%= link_to "Sparkling Wine", auctions_path(:query => "sparkling Wine") %></li>
-        <li><%= link_to "Fortified Wine", auctions_path(:query => "fortified_wine") %></li>
-        <li><%= link_to "Champagne", auctions_path(:query => "champagne") %></li>
-        <li><%= link_to "Carbonated Soft Drinks", auctions_path(:query => "carbonated_soft_drinks") %></li>
+        <li><%= link_to "Lager", auctions_path(:query => "lager"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Cider", auctions_path(:query => "cider"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Craft Beer", auctions_path(:query => "craft_beer"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Bitter", auctions_path(:query => "bitter"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Stout", auctions_path(:query => "stout"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Red Wine", auctions_path(:query => "red_wine"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "White Wine", auctions_path(:query => "white_wine"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Sparkling Wine", auctions_path(:query => "sparkling_wine"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Fortified Wine", auctions_path(:query => "fortified_wine"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Champagne", auctions_path(:query => "champagne"), class: "sub-nav-tab-link" %></li>
+        <li><%= link_to "Carbonated Soft Drinks", auctions_path(:query => "carbonated_soft_drinks"), class: "sub-nav-tab-link" %></li>
         <li><%= link_to "See All Categories", auctions_path%></li>
       </ul>
     </div>
