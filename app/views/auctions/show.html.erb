@@ -1,12 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-
+        <div class="timer">
+          <%= render 'shared/timer', deadline: @auction.deadline.strftime("%b %d, %Y %H:%M:%S") %>
+      </div>
       <ul class="auction-details d-flex w-100 justify-content-around py-2">
         <li>Auction for: <strong><%= @auction.category.capitalize %></strong></li>
         <li>Starting price: <strong><%= @auction.start_price %></strong></li>
         <li>Available for: <strong><%= @auction.contract_length %></strong></li>
       </ul>
+
       <div class="auction-bids">
         <h2>Browse all the active bids for <%= @auction.category.capitalize %> here:</h2>
 
