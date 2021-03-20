@@ -5,27 +5,30 @@ class BidsController < ApplicationController
   end
 
   def new
-    @bid = Bid.new
-  end
-
-  def create
     @auction = Auction.find(params[:auction_id])
-    @bid = Bid.new(bid_params)
+    @bid = Bid.new
     @bid.auction = @auction
-    if @bid.save
-      redirect_to auction_path(@auction)
-    else
-      render :new
+    # @bid.user = current_user
   end
 
-  def edit
-  end
+  # def create
+  #   @auction = Auction.find(params[:auction_id])
+  #   @bid = Bid.new(bid_params)
+  #   @bid.auction = @auction
+  #   if @bid.save
+  #     redirect_to auction_path(@auction)
+  #   else
+  #     render :new
+  # end
 
-  def update
-    @bid.update(bid_params)
-    @auction = @bid.auction
-    redirect_to auction_path(@auction)
-  end
+  # def edit
+  # end
+
+  # def update
+  #   @bid.update(bid_params)
+  #   @auction = @bid.auction
+  #   redirect_to auction_path(@auction)
+  # end
 
   private
 
