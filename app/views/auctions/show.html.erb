@@ -1,37 +1,46 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-
-      <ul class="auction-details d-flex w-100 justify-content-around py-2">
-        <li>Auction for: <strong><%= @auction.category.capitalize %></strong></li>
-        <li>Starting price: <strong><%= @auction.start_price %></strong></li>
-        <li>Available for: <strong><%= @auction.contract_length %></strong></li>
-      </ul>
-      <div class="auction-bids">
-        <h2>Browse all the active bids for <%= @auction.category.capitalize %> here:</h2>
-
-          <% @bids.each do |bid| %>
-            <div class="card">
-            <div class="d-flex justify-content-between">
-                <% if bid.photo.attached? %>
-                <div class="bid-card-img" style="background-image: url('<%= cl_image_path (bid.photo.key), crop: :fill %>');">
-                </div>
-                <% end %>
-
-              <p>Brand: <%= bid.user.name %></p>
-              <div class="bid-icons">
-                <%= link_to edit_bid_path(bid) do %>
-                  Change bid<i class="fas fa-pencil-alt mr-2 ml-2"></i>
-                <% end %>
-              </div>
-            </div>
-            <p>Price: <%= bid.price %> £</p>
-            <p>Perks: <%= bid.perks %></p>
+  <ul class="auction-details w-100 p-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <div>
+          <h2>Active bids for <strong><%= @auction.category.capitalize %></strong></h2>
+        </div>
+        <div class="d-flex">
+          <li class="pr-3">Starting price: <strong><%= @auction.start_price %></strong></li>
+          <li>Available for: <strong><%= @auction.contract_length %></strong></li>
+           <div class="timer pr-3">
+          <%= render 'shared/timer', deadline: @auction.deadline.strftime("%b %d, %Y %H:%M:%S") %>
           </div>
-        <% end %>
-        <%= link_to "Bid now", new_auction_bid_path(@auction) %>
+        </div>
       </div>
+    <div>
+      <%= link_to "Bid now", new_auction_bid_path(@auction), class: "btn button_bid"%>
+    </div>
+    </div>
+  </ul>
+  <div class="auction-bids container">
+    <div class="row">
+      <% @bids.each do |bid| %>
+        <div class="col-12 card flex-row align-items-center my-1">
+          <div>
+            <% if bid.photo.attached? %>
+              <div class="bid-card-img" style="background-image: url('<%= cl_image_path (bid.photo.key), crop: :fill %>');"></div>
+            <% end %>
+          </div>
+          <div class="d-flex flex-column w-100">
+            <div class="border-bottom d-flex flex-row w-100 justify-content-between pt-2">
+              <h4>Brand: <%= bid.user.name %></h4>
+                <%= link_to edit_bid_path(bid) do %>
+                  <i class="fas fa-pencil-alt"></i>
+                <% end %>
+            </div>
+            <div class="d-flex flex-row w-100 justify-content-between pt-4">
+              <p>Perks: <%= bid.perks %></p>
+              <h5><strong><%= bid.price %> £</strong></h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
     </div>
   </div>
 </div>
-

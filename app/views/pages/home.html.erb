@@ -1,4 +1,90 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-banner">
+  <div class="banner-content-container">
+    <div class="">
+      <div class="content-banner-wrapper">
+        <h1>A better way for<br>bars and brands<br> to do business.</h1>
+        <p>The online Auction when bars can tender their<br> listing deals and drinks brands can bid for them.</p>
+      </div>
+      <div>
+        <%= link_to "Get started", root_path, class: "btn dark-gray-button" %>
+        <%= link_to "Watch demo", root_path, class: " btn white-button" %>
+      </div>
+    </div>
+    <%= image_tag 'home-image.png', class: "home-banner-image" %>
+  </div>
+</div>
 
-<h2>Hi guys</h2>
+<div class="container home-auction-section">
+  <h2 class="text-center my-3">Popular Tenders</h2>
+
+  <div class="cards d-flex flex-row justify-content-center">
+
+    <div class="d-flex flex-column cards-bg-style mr-3">
+      <div class=" d-flex flex-row mr-2">
+        <div class="card-image">
+          <%= image_tag 'pingpong.png', class: "brand-avatar" %>
+        </div>
+        <div class=" d-flex flex-column align-items-center card-content-wrapper">
+          <h3>PING PONG</h3>
+          <p>Dim Sum Restaurant</p>
+          <%= link_to "About Venue", auctions_path, class: "btn venue-button" %>
+        </div>
+      </div>
+        <div class="d-flex flex-row auction-list p-3">
+          <div>
+            <h3>LISTING</h3>
+            <h4>Tonic Water</h4>
+            <p>12 months contract <br> for 7 locations(London)</p>
+          </div>
+          <h5>£ 2,500</h5>
+        </div>
+      <%= link_to "JOIN AUCTION", auctions_path, class: " btn auction-button" %>
+    </div>
+
+    <div class="d-flex flex-column cards-bg-style">
+      <div class=" d-flex flex-row mr-2">
+        <div class="card-image">
+          <%= image_tag 'gaucho.png', class: "brand-avatar" %>
+        </div>
+        <div class=" d-flex flex-column align-items-center card-content-wrapper">
+          <h3>GAUCHO</h3>
+          <p>Argentinian Restaurant</p>
+          <%= link_to "About Venue", auctions_path, class: "btn venue-button" %>
+        </div>
+      </div>
+        <div class="d-flex flex-row auction-list p-3">
+          <div>
+            <h3>LISTING</h3>
+            <h4>Red Wine</h4>
+            <p>18 months contract <br> for 11 locations(London)</p>
+          </div>
+          <h5>£ 5,500</h5>
+        </div>
+      <%= link_to "JOIN AUCTION", auctions_path, class: " btn auction-button" %>
+    </div>
+
+    <div class="d-flex flex-column cards-bg-style ml-3">
+      <div class=" d-flex flex-row mr-2">
+        <div class="card-image">
+          <%= image_tag 'beatone.png', class: "brand-avatar" %>
+        </div>
+        <div class=" d-flex flex-column align-items-center card-content-wrapper">
+          <h3>BE AT ONE</h3>
+          <p>Cocktail Bar</p>
+          <%= link_to "About Venue", auctions_path, class: "btn venue-button" %>
+        </div>
+      </div>
+        <div class="d-flex flex-row auction-list p-3">
+          <div>
+            <h3>LISTING</h3>
+            <h4>Vodka</h4>
+            <p>24 months contract <br> for 25 locations(London)</p>
+          </div>
+          <h5>£ 45,500</h5>
+        </div>
+      <%= link_to "JOIN AUCTION", auctions_path, class: " btn auction-button" %>
+    </div>
+  </div>
+</div>
+
+

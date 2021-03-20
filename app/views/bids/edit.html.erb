@@ -5,6 +5,7 @@
       <%= simple_form_for @bid do |f| %>
         <%= f.input :price %>
         <%= f.input :perks %>
+         <%= f.input :photo, as: :file %>
         <%= f.submit %>
       <% end %>
     </div>

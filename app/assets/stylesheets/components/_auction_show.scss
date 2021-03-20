@@ -1,7 +1,8 @@
 .auction-details {
   list-style: none;
-  background-color: #DA6350;
+  background-color:$primary;
   color: white;
+
 }
 
 .bid-card-img{
@@ -10,4 +11,19 @@
   background-repeat: no-repeat;
   height: 28vh;
   width: 25%;
+
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.button_bid {
+color: $primary;
+background-color: white;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  &:hover {
+    color: $primary;
+  }
+}
+
+.details p {
+  margin: 0 !important;
 }
