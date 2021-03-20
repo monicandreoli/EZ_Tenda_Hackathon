@@ -1,1 +1,169 @@
 // Specific CSS for your home-page
+.home-banner {
+  background: #da6351;
+  height: 350px;
+}
+
+.content-banner-wrapper h1 {
+  font-weight: 600;
+  padding-top: 40px;
+}
+
+.content-banner-wrapper p {
+  color: #fff;
+  font-weight: 300;
+}
+
+.dark-gray-button {
+  background: #413f3a;
+  color: #fff;
+}
+
+.dark-gray-button:hover {
+  background: #fff;
+  color: #413f3a;
+}
+
+.white-button {
+  background: #fff;
+}
+
+.white-button:hover {
+  background: #413f3a;
+  color: #fff;
+}
+
+
+.banner-content-container {
+  position: relative;
+  padding: 0px 200px;
+}
+
+.home-banner-image{
+  position: absolute;
+  top: 5px;
+  right:190px;
+  width:450px;
+}
+
+.home-auction-section {
+  height: 450px;
+}
+
+/*Auction card */
+
+.brand-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.card-content-wrapper {
+  padding:20px 10px;
+}
+
+
+.card-content-wrapper h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  color: #413f3a;
+
+}
+
+.card-content-wrapper p {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: 200;
+  color: #413f3a;
+}
+
+.auction-card {
+  width: 300px;
+}
+
+
+/*Venue button */
+
+.venue-button {
+  background: #413f3a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  padding:3px 20px;
+  border-radius: 3px;
+  margin-top: 0px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.venue-button:hover {
+  color: #fff;
+}
+
+/* Second section of card Button Card */
+
+
+.cards-bg-style {
+  border: 1px solid #cecece;
+  box-shadow: 2px 2px 10px #cecece;
+  border-radius: 5px;
+}
+
+.auction-list {
+  position: relative;
+}
+
+.auction-button {
+  background:#da6351!important;
+  color:#fff;
+  font-weight: 500;
+}
+
+.auction-list h3 {
+  font-size: 12px;
+  font-weight: 300;
+  /*margin-bottom: 2px;*/
+  color: #413f3a;
+}
+
+.auction-list h4 {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  color: #413f3a;
+}
+
+.auction-list p {
+  font-size: 12px;
+  font-weight: 300;
+  /*margin-bottom: 2px;*/
+  color: #413f3a;
+}
+
+.auction-list h5 {
+  font-size: 22px;
+  font-weight: 600;
+  /*margin-bottom: 2px;*/
+  color: #413f3a;
+  position: absolute;
+  top:40px;
+  right:25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
