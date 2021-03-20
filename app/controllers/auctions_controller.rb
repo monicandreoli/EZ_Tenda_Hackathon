@@ -52,6 +52,6 @@ class AuctionsController < ApplicationController
   end
 
   def auction_params
-    params.require(:auction).permit(:start_price, :category, :contract_length, :estimated_volume)
+    params.require(:auction).permit(:start_price, :category, :contract_length, :estimated_volume, :deadline)
   end
 end
