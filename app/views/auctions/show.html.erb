@@ -6,6 +6,12 @@
         <p><%= @auction.category.capitalize %> auction</p>
         <p>Starting price: <%= @auction.start_price %> </p>
         <p>Available for: <%= @auction.contract_length %> </p>
+
+        <div class="timer">
+          <%= render 'shared/timer', deadline: @auction.deadline.strftime("%b %d, %Y %H:%M:%S") %>
+        </div>
+    
+
       </div>
       <div class="auction-bids">
         <h2>All bids for the auction</h2>
