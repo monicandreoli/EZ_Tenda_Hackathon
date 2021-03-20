@@ -9,7 +9,9 @@
         </div>
       </div>
         <div class="timer">
-          <%= render 'shared/timer', deadline: @auction.deadline.strftime("%b %d, %Y %H:%M:%S") %>
+          <% if @auction.deadline %>
+            <%= render 'shared/timer', deadline: @auction.deadline.strftime("%b %d, %Y %H:%M:%S") %>
+          <% end  %>
         </div>
     </div>
   </ul>
