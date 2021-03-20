@@ -8,9 +8,9 @@
 .button_bid {
 color: $primary;
 background-color: white;
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   &:hover {
     color: $primary;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 

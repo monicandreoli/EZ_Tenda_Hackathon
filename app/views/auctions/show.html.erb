@@ -2,22 +2,20 @@
   <ul class="auction-details w-100 p-3">
     <div class="d-flex justify-content-between align-items-center">
       <div>
-        <div>
           <h2>Active bids for <strong><%= @auction.category.capitalize %></strong></h2>
-        </div>
         <div class="d-flex">
-          <li class="pr-3">Starting price: <strong><%= @auction.start_price %></strong></li>
-          <li>Available for: <strong><%= @auction.contract_length %></strong></li>
-           <div class="timer pr-3">
-          <%= render 'shared/timer', deadline: @auction.deadline.strftime("%b %d, %Y %H:%M:%S") %>
-          </div>
+          <p class="pr-3">Starting price: <strong><%= @auction.start_price %></strong></p>
+          <p>Available for: <strong><%= @auction.contract_length %></strong></p>
         </div>
       </div>
-    <div>
-      <%= link_to "Bid now", new_auction_bid_path(@auction), class: "btn button_bid"%>
-    </div>
+        <div class="timer">
+          <%= render 'shared/timer', deadline: @auction.deadline.strftime("%b %d, %Y %H:%M:%S") %>
+        </div>
     </div>
   </ul>
+   <div class="d-flex w-100 justify-content-end pb-2">
+      <%= link_to "Bid now", new_auction_bid_path(@auction), class: "btn button_bid"%>
+    </div>
   <div class="auction-bids container">
     <div class="row">
       <% @bids.each do |bid| %>
