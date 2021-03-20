@@ -3,6 +3,11 @@ class AuctionsController < ApplicationController
 
   def index
     @auctions = Auction.all
+    if params[:query].present?
+      @auctions = Auction.where("category ILIKE ?", "%#{params[:query]}%")
+    else
+      @auctions = Auction.all
+    end
   end
 
   def show
@@ -47,6 +52,6 @@ class AuctionsController < ApplicationController
   end
 
   def auction_params
-    params.require(:auction).permit(:start_price, :category, :contract_length, :estimated_volume)
+    params.require(:auction).permit(:start_price, :category, :contract_length, :estimated_volume, :deadline)
   end
 end
