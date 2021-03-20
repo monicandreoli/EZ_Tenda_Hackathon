@@ -1,11 +1,6 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @auction = Auction.find(params[:auction_id])
-    @bids = @auction.bids
-  end
-
   def show
   end
 

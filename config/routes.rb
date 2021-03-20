@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :auctions do
-    resources :bids, only: [:index, :create]
+    resources :bids, only: [:create]
   end
   resources :bids, only: [:show, :new, :edit, :update]
   get '/dashboard', to: 'pages#dashboard'

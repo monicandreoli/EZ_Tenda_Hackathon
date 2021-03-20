@@ -1,1 +1,22 @@
-<h1>single auction</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="auction-details">
+        <h1>Single auction</h1>
+        <p><%= @auction.category.capitalize %> auction</p>
+        <p>Starting price: <%= @auction.start_price %> </p>
+        <p>Available for: <%= @auction.contract_length %> </p>
+      </div>
+      <div class="auction-bids">
+        <h2>All bids for the auction</h2>
+        <div class="card">
+          <% @bids.each do |bid| %>
+            <p>Brand: <%= bid.user.name %></p>
+            <p>Price: <%= bid.price %> £</p>
+            <p>Perks: <%= bid.perks %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
