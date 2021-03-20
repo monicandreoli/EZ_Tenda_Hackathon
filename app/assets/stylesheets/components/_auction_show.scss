@@ -2,6 +2,16 @@
   list-style: none;
   background-color:$primary;
   color: white;
+
+}
+
+.bid-card-img{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 28vh;
+  width: 25%;
+
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -14,14 +24,6 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 }
 
-.auction-bids .img-bid {
-  object-fit: contain;
-  height: 100px;
-  width: auto;
-}
-
-
 .details p {
   margin: 0 !important;
-
 }
