@@ -27,30 +27,45 @@ class BidsController < ApplicationController
 
   def update
     @auction = @bid.auction
-    if @bid.update(bid_params)
+    if params[:query_approve].present?
+      @bid.approved = params[:query_approve]
+      # @bid.declined = false
+      if @bid.save!
+        redirect_to dashboard_path
+      end
+    end
+    if params[:query_decline].present?
+      @bid.declined = params[:query_decline]
+      # @bid.approved = false
+      @bid.save!
       redirect_to auction_path(@auction)
-    else
-      render :edit
-    end 
+    end
+    if params[:price].present? || params[:perks].present? || params[:photo].present?
+      if @bid.update(bid_params)
+        redirect_to auction_path(@auction)
+      else
+        render :edit
+      end
+    end
   end
 
-  def approve
-    @bid.approved = true
-    @bid.declined = false
-    respond_to do |format|
-      format.js
-    end
-    @bid.save
-  end
+  # def approve
+  #   @bid.approved = true
+  #   @bid.declined = false
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  #   @bid.save
+  # end
 
-  def decline
-    @bid.declined = true
-    @bid.approved = false
-    respond_to do |format|
-      format.js
-    end
-    @bid.save
-  end
+  # def decline
+  #   @bid.declined = true
+  #   @bid.approved = false
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  #   @bid.save
+  # end
 
   private
 
