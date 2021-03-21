@@ -1,5 +1,5 @@
-const { environment } = require('@rails/webpacker')
-
+const { environment } = require('@rails/webpacker');
+const customConfig = require("./custom");
 const webpack = require('webpack');
 
 // Preventing Babel from transpiling NodeModules packages
@@ -13,5 +13,5 @@ environment.plugins.prepend('Provide',
     Popper: ['popper.js', 'default']
   })
 );
-
+environment.config.merge(customConfig);
 module.exports = environment
