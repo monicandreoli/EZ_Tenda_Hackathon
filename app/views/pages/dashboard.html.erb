@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pt-4">
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <% if current_user.role == "Brand" %>
@@ -38,27 +38,44 @@
     aria-labelledby="nav-home-tab"
   >
     <div class="container">
-        <% @bids.each do |bid| %> <% if bid.user_id == current_user.id%>
-        <div class="col-12 card flex-row align-items-center my-1">
-            <div class="p-2">
-                <% if bid.photo.attached? %>
-                  <div class="bid-card-img" style="background-image: url('<%= cl_image_path (bid.photo.key), crop: :fill %>');"></div>
-                <% end %>
-              </div>
-              <div class="d-flex flex-column w-100">
-                <div class="border-bottom d-flex flex-row w-100 justify-content-between pt-2">
-                  <h4><%= bid.user.name %></h4>
-                    <%= link_to edit_bid_path(bid) do %>
-                      <i class="fas fa-pencil-alt"></i>
-                    <% end %>
-                </div>
-                <div class="d-flex flex-row w-100 justify-content-between pt-4">
-                  <p>Perks: <%= bid.perks %></p>
-                  <h5><strong><%= bid.price %> £</strong></h5>
-                </div>
-              </div>
+    <div class="row justify-content-center">
+        <% @bids.each do |bid| %>
+        <% if bid.user_id == current_user.id%>
+                <div class="card card-index">
+        <div class="border-bottom w-100 my-2 p-2 d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="avatar-img-auction"
+              style="background-image: url('<%= cl_image_path (auction.user.photo.key), crop: :fill %>'); width: 40px; height: 40px; border-radius: 50px">
+            </div>
+            <span><%= auction.user.name %></span>
+          </div>
+          <div>
+            <%= link_to edit_auction_path(auction) do %>
+            <i class="fas fa-pencil-alt pr-1"></i>
+            <% end %>
+            <%= link_to auction_path(auction), method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
         </div>
-        <% end %> <% end %>
+        <div class="p-2 details-auction">
+          <p class="pb-2"><small>LISTING</small></p>
+          <h6><strong><%= auction.add_space(auction.category).upcase %></strong></h6>
+          <div class="d-flex w-100 justify-content-between">
+            <div>
+              <p><small><%= auction.contract_length %> contract</small></p>
+              <p><small>Volume of <%= auction.estimated_volume %></small></p>
+            </div>
+            <h4>£ <%= auction.start_price %></h4>
+          </div>
+        </div>
+        <div class="pb-2 join_auction">
+          <%= link_to ' JOIN AUCTION', auction_path(auction), class: "" %>
+        </div>
+      </div>
+        <% end %>
+      <% end %>
+    </div>
     </div>
   </div>
 </div>
@@ -71,44 +88,44 @@
   aria-labelledby="nav-profile-tab"
 >
   <div class="container">
-    <% @auctions.each do |auction| %> <% if auction.user_id == current_user.id%>
-    <div class="card col-6 my-2 w-100">
-      <div
-        class="border-bottom w-100 my-2 pt-2 d-flex justify-content-between align-items-center"
-      >
-        <div class="d-flex align-items-center">
-          <div
-            class="avatar-img-auction"
-            style="
-              background-image: url('<%= cl_image_path (auction.user.photo.key), crop: :fill %>');
-              width: 40px;
-              height: 40px;
-              border-radius: 50px;
-            "
-          ></div>
-          <span><%= auction.user.name %></span>
+  <div class="row justify-content-center">
+    <% @auctions.each do |auction| %>
+    <% if auction.user_id == current_user.id%>
+        <div class="card card-index">
+        <div class="border-bottom w-100 my-2 p-2 d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="avatar-img-auction"
+              style="background-image: url('<%= cl_image_path (auction.user.photo.key), crop: :fill %>'); width: 40px; height: 40px; border-radius: 50px">
+            </div>
+            <span><%= auction.user.name %></span>
+          </div>
+          <div>
+            <%= link_to edit_auction_path(auction) do %>
+            <i class="fas fa-pencil-alt pr-1"></i>
+            <% end %>
+            <%= link_to auction_path(auction), method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
         </div>
-        <div>
-          <%= link_to edit_auction_path(auction) do %>
-          <i class="fas fa-pencil-alt pr-1"></i>
-          <% end %> <%= link_to auction_path(auction), method: :delete, data:
-          {confirm: "Are you sure?"} do %>
-          <i class="fas fa-trash"></i>
-          <% end %>
+        <div class="p-2 details-auction">
+          <p class="pb-2"><small>LISTING</small></p>
+          <h6><strong><%= auction.add_space(auction.category).upcase %></strong></h6>
+          <div class="d-flex w-100 justify-content-between">
+            <div>
+              <p><small><%= auction.contract_length %> contract</small></p>
+              <p><small>Volume of <%= auction.estimated_volume %></small></p>
+            </div>
+            <h4>£ <%= auction.start_price %></h4>
+          </div>
+        </div>
+        <div class="pb-2 join_auction">
+          <%= link_to ' JOIN AUCTION', auction_path(auction), class: "" %>
         </div>
       </div>
-      <div class="p-2">
-        <h6><%= auction.add_space(auction.category).capitalize %> Auction</h6>
-        <div>Price: £<%= auction.start_price %></div>
-        <div class="">Volume: <%= auction.estimated_volume %></div>
-        <div>Contract: <%= auction.contract_length %></div>
-      </div>
-      <div class="ml-auto pb-2">
-        <%= link_to 'Go to auction', auction_path(auction), class: "btn
-        venue-button" %>
-      </div>
-    </div>
-    <% end %> <% end %>
+    <% end %>
+    <% end %>
+  </div>
   </div>
 </div>
 <% end %>
@@ -137,7 +154,8 @@
                 </div>
               </div>
         </div>
-        <% end %> <% end %> 
+        <% end %> 
+      <% end %> 
     </div>
 </div>
 
