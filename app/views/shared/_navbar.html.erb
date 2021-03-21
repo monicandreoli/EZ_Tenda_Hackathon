@@ -18,11 +18,12 @@
       <ul class="d-flex nav-item-list">
         <li>HOW IT WORKS</li>
         <li>USE CASES</li>
-        <li>ABOUT US</li>
-        <li><%= link_to "LOGIN", new_user_session_path %></li>
+        <li>ABOUT US</li>        
         <% if current_user %>
+          <li><%= link_to "DASHBOARD",  dashboard_path %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-info" %></li>
         <% else %>
+          <li><%= link_to "LOGIN", new_user_session_path %></li>
           <li><%= link_to "Sign up", new_user_registration_path, class: "btn btn-info" %></li>
         <% end %>
       </ul>
