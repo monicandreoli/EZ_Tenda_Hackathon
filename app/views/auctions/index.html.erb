@@ -22,11 +22,13 @@
             <span><%= auction.user.name %></span>
           </div>
           <div>
+          <% if auction.user == current_user %>
             <%= link_to edit_auction_path(auction) do %>
             <i class="fas fa-pencil-alt pr-1"></i>
             <% end %>
             <%= link_to auction_path(auction), method: :delete, data: {confirm: "Are you sure?"} do %>
             <i class="fas fa-trash"></i>
+            <% end %>
             <% end %>
           </div>
         </div>
@@ -36,7 +38,7 @@
           <div class="d-flex w-100 justify-content-between">
             <div>
               <p><small><%= auction.contract_length %> contract</small></p>
-              <p><small><%= auction.estimated_volume %> pieces</small></p>
+              <p><small>Volume of <%= auction.estimated_volume %></small></p>
             </div>
             <h4>£ <%= auction.start_price %></h4>
           </div>

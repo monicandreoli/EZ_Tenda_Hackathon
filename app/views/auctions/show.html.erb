@@ -16,12 +16,12 @@
     </div>
   </ul>
    <div class="d-flex w-100 justify-content-end pb-2">
-   
+
     <% if @auction.is_over? %>
     <% else %>
       <%= link_to "Bid now", new_auction_bid_path(@auction), class: "btn button_bid"%>
     <% end %>
-   
+
     </div>
   <div class="auction-bids container">
     <div class="row">
@@ -35,8 +35,10 @@
           <div class="d-flex flex-column w-100">
             <div class="border-bottom d-flex flex-row w-100 justify-content-between pt-2">
               <h4><%= bid.user.name %></h4>
+              <% if bid.user == current_user %>
                 <%= link_to edit_bid_path(bid) do %>
                   <i class="fas fa-pencil-alt"></i>
+                <% end %>
                 <% end %>
             </div>
             <div class="d-flex flex-row w-100 justify-content-between pt-4">
@@ -45,23 +47,23 @@
             </div>
           </div>
           <div class="approved-declined">
-            
+
             <% if @auction.is_over? %>
             <%# && @auction.user.role == "Manager"  %>
-              
+
               <% if bid.approved != true %>
                 <%= link_to auction_path(@auction), remote: true, class: "btn btn-primary ml-4 approve-decline-button" do %>
                   <i class="fas fa-thumbs-up mr-2"></i>Accept
                 <% end %>
-                
+
               <% else %>
                 <%= link_to auction_path(@auction), remote: true, class: "btn btn-outline-primary ml-4 approve-decline-button" do %>
                   <i class="fas fa-thumbs-down mr-2"></i>Decline
                 <% end %>
               <% end %>
-              
+
             <% end %>
-            
+
           </div>
         </div>
         <% end %>
