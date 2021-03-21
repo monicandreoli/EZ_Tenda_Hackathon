@@ -15,7 +15,9 @@
 
   <body style="background: #D9D3CD4D;">
     <%= render "/shared/navbar" %>
+    <main style="min-height: 70vh;">
     <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
   </body>
 </html>
