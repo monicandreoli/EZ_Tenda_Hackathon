@@ -1,40 +1,129 @@
-<% if current_user.role == "Brand" %> 
-<h1>Live Bids</h1>
-    <% @bids.each do |bid| %>
-        <% if bid.user_id == current_user.id%>
-            <div class="card">
-                <div class="bid-price">
-                    <span><%= bid.price %></span>
-                </div>
-                <div class="bid-perks">
-                    <span><%= bid.perks %></span>
-                </div>
-                <div class="bid-perks">
-                    <span>Auction: <%= bid.auction_id %> - <%= bid.auction.estimated_volume %> bottles of <%= bid.auction.category %> for <%= bid.auction.contract_length %></span>
-                </div>
-            </div>
-        <% end %>
-    <% end %>
-<% end %>
+<div class="container">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <% if current_user.role == "Brand" %>
+          <a
+            class="nav-item-2 nav-link"
+            id="nav-home-tab"
+            data-toggle="tab"
+            href="#nav-home"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="true"
+            >Your Live Bids</a
+          >
+          <% end %>
+          <% if current_user.role == "Manager" %>
+          <a
+            class="nav-item-2 nav-link"
+            id="nav-profile-tab"
+            data-toggle="tab"
+            href="#nav-profile"
+            role="tab"
+            aria-controls="nav-profile"
+            aria-selected="false"
+            >Your Live Auctions</a
+          >
+          <% end %>
+          <a class="nav-item-2 nav-link active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Accepted Bids</a>
+        </div>
+      </nav>
+</div>
 
-<% if current_user.role == "Manager" %>
-    <h1>Live Auctions</h1> 
-    <% @auctions.each do |auction| %>
-        <% if auction.user_id == current_user.id%>
-            <div class="card">
-                <div class="auction-start-price">
-                    <%= auction.start_price %>
-                </div>
-                <div class="auction-estimated-volume">
-                    <%= auction.estimated_volume %>
-                </div>
-                <div class="auction-contract-length">
-                    <%= auction.contract_length %>
-                </div>
-                <div class="auction-catgeory">
-                    <%= auction.category %>
-                </div>    
-            </div>
-        <% end %>
-    <% end %>
-<% end %>
+
+<div class="tab-content" id="nav-tabContent">
+  <div
+    class="tab-pane fade show"
+    id="nav-home"
+    role="tabpanel"
+    aria-labelledby="nav-home-tab"
+  >
+    <div class="container"></div>
+    <% @bids.each do |bid| %> <% if bid.user_id == current_user.id%>
+    <div class="card">
+      <div class="bid-price">
+        <span><%= bid.price %></span>
+      </div>
+      <div class="bid-perks">
+        <span><%= bid.perks %></span>
+      </div>
+      <div class="bid-perks">
+        <span
+          >Auction: <%= bid.auction_id %> - <%= bid.auction.estimated_volume %>
+          bottles of <%= bid.auction.category %> for <%=
+          bid.auction.contract_length %></span
+        >
+      </div>
+    </div>
+    <% end %> <% end %>
+  </div>
+</div>
+
+<div
+  class="tab-pane fade"
+  id="nav-profile"
+  role="tabpanel"
+  aria-labelledby="nav-profile-tab"
+>
+  <div class="container">
+    <% @auctions.each do |auction| %> <% if auction.user_id == current_user.id%>
+    <div class="card col-6 my-2 w-100">
+      <div
+        class="border-bottom w-100 my-2 pt-2 d-flex justify-content-between align-items-center"
+      >
+        <div class="d-flex align-items-center">
+          <div
+            class="avatar-img-auction"
+            style="
+              background-image: url('<%= cl_image_path (auction.user.photo.key), crop: :fill %>');
+              width: 40px;
+              height: 40px;
+              border-radius: 50px;
+            "
+          ></div>
+          <span><%= auction.user.name %></span>
+        </div>
+        <div>
+          <%= link_to edit_auction_path(auction) do %>
+          <i class="fas fa-pencil-alt pr-1"></i>
+          <% end %> <%= link_to auction_path(auction), method: :delete, data:
+          {confirm: "Are you sure?"} do %>
+          <i class="fas fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-2">
+        <h6><%= auction.add_space(auction.category).capitalize %> Auction</h6>
+        <div>Price: £<%= auction.start_price %></div>
+        <div class="">Volume: <%= auction.estimated_volume %></div>
+        <div>Contract: <%= auction.contract_length %></div>
+      </div>
+      <div class="ml-auto pb-2">
+        <%= link_to 'Go to auction', auction_path(auction), class: "btn
+        venue-button" %>
+      </div>
+    </div>
+    <% end %> <% end %>
+  </div>
+</div>
+
+<div class="tab-pane fade active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <% @bids.each do |bid| %> 
+    <% if bid.user_id == current_user.id && bid.accepted == true %>
+    <div class="card">
+      <div class="bid-price">
+        <span><%= bid.price %></span>
+      </div>
+      <div class="bid-perks">
+        <span><%= bid.perks %></span>
+      </div>
+      <div class="bid-perks">
+        <span
+          >Auction: <%= bid.auction_id %> - <%= bid.auction.estimated_volume %>
+          bottles of <%= bid.auction.category %> for <%=
+          bid.auction.contract_length %></span
+        >
+      </div>
+    </div>
+    <% end %> <% end %>
+</div>

@@ -95,7 +95,7 @@ bid_6.photo.attach(io: bid_6_image, filename: "bid_6.png", content_type: "image/
 bid_6.save!
 
 bid_7 = Bid.new(price: 400, perks: "30 glasses and t-shirts", user_id: user_7.id, auction_id: auction_2.id)
-bid_7_image = URI.open("https://www.pikpng.com/pngl/m/408-4081491_bombay-sapphire-gin-70cl-clipart.png")    
+bid_7_image = URI.open("https://www.vhv.rs/dpng/d/529-5292795_toms-poor-toms-sydney-dry-gin-hd-png.png")    
 bid_7.photo.attach(io: bid_7_image, filename: "bid_7.png", content_type: "image/png")
 bid_7.save!
 

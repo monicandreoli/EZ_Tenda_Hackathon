@@ -31,7 +31,8 @@
       <div class="p-2">
       <h6><%= auction.add_space(auction.category).capitalize %> Auction</h6>
       <div>Price: £<%= auction.start_price %></div> 
-      <div>Available for: <%= auction.contract_length %></div>
+      <div class="">Volume: <%= auction.estimated_volume %></div>
+      <div>Contract: <%= auction.contract_length %></div>
       </div>
       <div class="ml-auto pb-2">
     <%= link_to 'Go to auction', auction_path(auction), class: "btn venue-button" %>
