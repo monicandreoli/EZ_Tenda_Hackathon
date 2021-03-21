@@ -110,7 +110,7 @@
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <div class="container">
             <% @bids.each do |bid| %> 
-            <% if bid.user_id == current_user.id && bid.approved == true %>
+            <% if bid.auction.user_id == current_user.id && bid.approved == true %>
             <div class="col-12 card flex-row align-items-center my-1">
               <div class="p-2">
                 <% if bid.photo.attached? %>
